@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/ekansh123123-debug/BattleShip#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.29.14",
     "css-loader": "^7.1.5",
     "dotenv-webpack": "^9.0.0",
     "html-loader": "^5.1.0",
