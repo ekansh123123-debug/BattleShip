@@ -41,7 +41,7 @@ class GameBoard {
     if (!this.isShipPresentAt(x, y) || this.isHit(x, y)) return null;
     return this.board[x][y];
   }
-  placeShip(x, y, ship, isHorizontal=true) {
+  placeShip(x, y, ship, isHorizontal = true) {
     if (!this.isValid(x, y, ship, isHorizontal)) return false;
     if (this.isShipPresentAt(x, y)) return false;
     for (let i = 0; i < ship.length; i++) {
@@ -59,8 +59,8 @@ class GameBoard {
     this.ships.push(ship);
     return true;
   }
-  isAllShipSunk() {
-    for (const ship in this.ships) {
+  isGameOver() {
+    for (const ship of this.ships) {
       if (!ship.sunk) {
         return false;
       }
@@ -78,7 +78,7 @@ class GameBoard {
     ship.hit();
     this.board[x][y] = 3;
     this.shorts.push([x, y]);
-    if (this.isAllShipSunk) {
+    if (this.isGameOver()) {
       return "game end";
     }
     return true;
