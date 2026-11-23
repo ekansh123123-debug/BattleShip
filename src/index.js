@@ -84,4 +84,18 @@ class GameBoard {
     return true;
   }
 }
-export { Ship, GameBoard };
+function playerCount() {
+  let count = 0;
+  return () => {
+    count++;
+    return count;
+  };
+}
+const nextPlayerId = playerCount();
+class Player {
+  constructor(name = `Player ${nextPlayerId()}`) {
+    this.name = name;
+    this.board = new GameBoard();
+  }
+}
+export { Ship, GameBoard, Player };
